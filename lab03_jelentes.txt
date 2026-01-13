@@ -1,0 +1,12 @@
+I. feladat:
+A fork() miutan lefutott lathato volt, hogy egyszerre 2 darab folyamat fut, a szulo es a gyerek, ugyanis mindketto kiirt a terminalra. Az is eszreveheto volt, hogy a gyerek PID-je rogton a a szulo utan kovetkezo PID, ugyanis az hivta meg. Es a sorrend is aszerint irodik ki, hogy melyik hivta meg melyiket es melyik fut le hamarabb.
+
+II. feladat
+wait() nelkul a gyerek folyamat zombi allapotban maradt a folyamattablaban, merrt a szulo nem vette at a kilepesi statuszat. A wait(NULL) beillesztesevel viszont a szulo megvarta a gyereket, igy az szabalyosan torlodott a rendszerbol es nem maradt meg zombikent
+
+III. feladat
+Az elso futtataskor versenyhelyzet volt, de a masodik es harmadik alkalommal viszont sikeresen megkapta az elvart eredmenyt, pedig nem valtoztattam semmit a kodban, valoszinuleg, mivel mar egyszer lefutott, masodjara az egyik folyamatnak gyorsabban sikerult elvegeznie a munkat, mint a masik elkezdhette volna, igy elkerulve az utkozes. Ezutan megnoveltem mind a ket helyen, hogy tovabb fussanak, tettem egy 0-t a vegere, igy ujra letrejott a versenyhelyzet, kulonbozo eredmenyt adva.
+Az, hogy miert nem kellene kijojjon a megfelelo eredmeny azert van, mert a counter++ muvelet nem atomi, hanem valojaban 3 lepesbol all (olvasas, noveles, visszairas). Ha viszont a ket folyamat egyszerre olvassa ki a kezdoerteket, nem varva, hogy valamelyik eloszor visszairja a sajatjat, mind a ketten ugyanazt irjak vissza, igy az eredmeny csak 1-el no, nem az elvart 2-vel
+
+IV. feladat
+

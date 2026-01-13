@@ -30,11 +30,11 @@ int main() {
         // Akkor zombie lesz a gyerek.
         // 
         // MÁSODSZOR uncomment-eld ki ezt:
-        /*
+        
         printf("[Szülő] Megvárom a gyereket...\n");
         wait(NULL);
         printf("[Szülő] A gyerek befejeződött, nincs több zombie!\n");
-        */
+        
         
         // =====================
         

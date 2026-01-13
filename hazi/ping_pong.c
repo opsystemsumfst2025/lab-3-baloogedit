@@ -34,8 +34,8 @@ int main() {
     
     // TODO: Inicializáld a szemaforokat!
     // Melyik legyen 1 és melyik 0?
-    // sem_init(&sems->sem_parent, 1, ???);
-    // sem_init(&sems->sem_child, 1, ???);
+    sem_init(&sems->sem_parent, 1, 1);
+    sem_init(&sems->sem_child, 1, 0);
     
     pid_t pid = fork();
     
@@ -49,12 +49,12 @@ int main() {
         
         for (int i = 0; i < ROUNDS; i++) {
             // TODO: Várd meg, hogy te jöhess
-            // sem_wait(...);
+            sem_wait(&sems->sem_child);
             
             printf("PONG\n");
             
             // TODO: Engedd el a szülőt
-            // sem_post(...);
+            sem_post(&sems->sem_parent);
         }
         
         exit(0);
@@ -63,12 +63,12 @@ int main() {
         
         for (int i = 0; i < ROUNDS; i++) {
             // TODO: Várd meg, hogy te jöhess
-            // sem_wait(...);
+            sem_wait(&sems->sem_parent);
             
             printf("PING\n");
             
             // TODO: Engedd el a gyereket
-            // sem_post(...);
+            sem_post(&sems->sem_child);
         }
         
         wait(NULL);

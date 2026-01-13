@@ -21,7 +21,7 @@ int main() {
     *counter = 0; // Kezdőérték
 
     printf("Kezdőérték: %d\n", *counter);
-    printf("Mindkét folyamat 100 000-szer növeli...\n\n");
+    printf("Mindkét folyamat 1 000 000-szer növeli...\n\n");
 
     pid_t pid = fork();
 
@@ -32,14 +32,14 @@ int main() {
 
     if (pid == 0) {
         // GYEREK folyamat
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 1000000; i++) {
             (*counter)++; // Versenyhelyzet!
         }
         printf("[Gyerek] Készen vagyok!\n");
         exit(0);
     } else {
         // SZÜLŐ folyamat
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 1000000; i++) {
             (*counter)++; // Versenyhelyzet!
         }
         printf("[Szülő] Készen vagyok!\n");
