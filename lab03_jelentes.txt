@@ -9,4 +9,4 @@ Az elso futtataskor versenyhelyzet volt, de a masodik es harmadik alkalommal vis
 Az, hogy miert nem kellene kijojjon a megfelelo eredmeny azert van, mert a counter++ muvelet nem atomi, hanem valojaban 3 lepesbol all (olvasas, noveles, visszairas). Ha viszont a ket folyamat egyszerre olvassa ki a kezdoerteket, nem varva, hogy valamelyik eloszor visszairja a sajatjat, mind a ketten ugyanazt irjak vissza, igy az eredmeny csak 1-el no, nem az elvart 2-vel
 
 IV. feladat
-
+A POSIX szemafor segitsegevel kolcsonos kizarast (mutex) valositunk meg.Ez garantalja, hogy egyszerre csak 1 folyamat modosithassa a kozos valtozot, ennek koszonhetoen jott ki a helyes eredmeny. Emiatt a program ugyanakkor kicsit lassabb, mert a folyamatoknak varniuk kell egymasra.
